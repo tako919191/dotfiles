@@ -33,12 +33,15 @@ setopt pushd_ignore_dups
 # コマンドのスペルを訂正する
 setopt correct
 
+# 日本語ファイル名を表示させる
+setopt print_eight_bit
+
 # <Tab>でパス名の補完候補を表示したあと、
 # 続けて<Tab>を押すと候補からパス名を選択することができるようになる
 zstyle ':completion:*:default' menu select=1
 
-autoload colors
-zstyle ':completion:*' list-lolors "${LS_COLORS}"
+# autoload colors
+# zstyle ':completion:*' list-lolors "${LS_COLORS}"
 
 
 #エイリアス
