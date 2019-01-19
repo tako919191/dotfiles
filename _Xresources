@@ -1,0 +1,34 @@
+! Rofi Settings
+rofi.sidebar-mode:	true
+rofi.width:	60
+rofi.padding:	250
+rofi.fullscreen:	true
+rofi.fixed-num-lines:	true
+rofi.bw:	0
+rofi.location:	0
+rofi.terminal:	termite
+rofi.lines:	8
+rofi.eh:	1
+rofi.hide-scrollbar:	true
+rofi.font:	Migu 1M Bold 20
+rofi.fake-transparent:	true
+
+rofi.color-enabled: true
+
+!                  bg       border   separator
+rofi.color-window: #282a38, #a89984, #282a38
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+! rofi.color-normal: #282828, #ebdbb2, #282828, #d79921, #fbf1c7
+! rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282a38, #cc241d, #fb4934, #282a38
+
+rofi.color-normal: #282a38, #eff0eb, #282a38, #5af78e, #eff0eb
+rofi.color-active: #5af78e, #282a38, #5af78e, #93e0e3, #282a38
+
+! Xft settings ---------------------------------------------------------------
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
