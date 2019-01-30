@@ -74,7 +74,7 @@ module-margin-right = 1
 ;==========================================================
 
 #font-0 = "Fantasque Sans Mono:pixelsize=12;2"
-font-0 = "Fantasque Sans Mono:pixelsize=12;2"
+font-0 = "Fantasque Sans Mono Nerd:pixelsize=12;2"
 #font-1 = "Material Icons:size=13;4"
 font-1 = "Material Icons:size=13;4"
 font-2 = "Iosevka Nerd Font:pixelsize=13;3"
@@ -94,18 +94,21 @@ scroll-down = i3wm-wsprev
 ;== Module Location ========================================================
 
 modules-left = arch workspaces term files browser settings
-modules-right = pkg keyboard volume battery network date powermenu
+modules-right = memory cpu pkg volume backlight network keyboard battery date powermenu
 #modules-right = mpd pkg volume battery network date powermenu
  
 ;== Modules ========================================================
 
 [module/arch]
 type = custom/text
-content = 
+;content = 
+content = 
 ;alt-icon = 
 content-padding = 2
+#content-background = ${color.acolor}
 content-background = ${color.acolor}
-content-foreground = ${color.fg}
+#content-foreground = ${color.fg}
+content-foreground = ${color.blue}
 click-left = $HOME/dotfiles/.config/polybar/scripts/rmenu_g
 click-middle = $HOME/dotfiles/.config/polybar/scripts/rfull
 click-right = $HOME/dotfiles/.config/polybar/scripts/rmenu_wi_g
@@ -146,7 +149,7 @@ label-occupied-underline = ${color.coccupied}
 
 [module/term]
 type = custom/text
-content = 
+content = 
 content-foreground = ${color.fg-alt}
 click-left = termite &
 #click-middle = urxvt &
@@ -155,15 +158,13 @@ click-left = termite &
 [module/files]
 type = custom/text
 content = 
-content-padding = 1
 content-foreground = ${color.fg-alt}
 click-left = thunar &
 ;click-right = ranger &
 
 [module/browser]
 type = custom/text
-content = 
-content-padding = 1
+content = 
 content-foreground = ${color.fg-alt}
 click-left = chromium &
 ;click-right = firefox &
@@ -171,7 +172,6 @@ click-left = chromium &
 [module/settings]
 type = custom/text
 content = 
-content-padding = 1
 content-foreground = ${color.fg-alt}
 ;click-left = xfce4-settings &
 ;click-right = lxappearance &
@@ -274,10 +274,168 @@ click-left = $HOME/dotfiles/.config/polybar/scripts/pmenu_g
 #click-right = pmenu_g
 
 [module/keyboard]
-type = custom/text
-content = 
-content-padding = 1
-click-left = fcitx-configtool &
-;click-right = lxappearance &
+#type = custom/text
+#content = 
+#click-left = fcitx-configtool &
+#;click-right = lxappearance &
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout =  %name%
+;label-layout-padding = 1
+;label-layout-background = ${color.blue}
+label-layout-foreground = ${color.fg}
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+;label-indicator-padding = 2
+label-indicator-background = #8139e8
+
+;;;;;;;;;
+;; CPU ;;
+;;;;;;;;;
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-padding = 1
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label> <ramp-coreload>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = CPU %percentage%%
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+;;;;;;;;;
+;; MEM ;;
+;;;;;;;;;
+[module/memory]
+type = internal/memory
+interval = 3
+label-padding = 1
+; Available tags:
+;   <label> (default)
+;   <bar-used>
+;   <bar-free>
+;   <ramp-used>
+;   <ramp-free>
+;   <bar-swap-used>
+;   <bar-swap-free>
+;   <ramp-swap-used>
+;   <ramp-swap-free>
+format = <label> <bar-used>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+
+label = RAM %gb_used%us,%gb_free%fr
+
+; Only applies if <bar-used> is used
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
+
+; Only applies if <ramp-used> is used
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+; Only applies if <ramp-free> is used
+ramp-free-0 = ▁
+ramp-free-1 = ▂
+ramp-free-2 = ▃
+ramp-free-3 = ▄
+ramp-free-4 = ▅
+ramp-free-5 = ▆
+ramp-free-6 = ▇
+ramp-free-7 = █
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
 
 ;== EOF ========================================================
