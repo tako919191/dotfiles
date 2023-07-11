@@ -1,8 +1,4 @@
 # My dotfiles
-- [My dotfiles](#my-dotfiles)
-  - [Overview](#overview)
-  - [Usage](#usage)
-  - [TODO](#todo)
 
 ## Overview
 
@@ -28,3 +24,5 @@ $ cp -r .vscode /path/to/vscode-workspaces
 
 - Support for Dev Container (VS Code)
   - [Personalizing with dotfile repositories](https://code.visualstudio.com/docs/devcontainers/containers#_personalizing-with-dotfile-repositories)
+- Support for VS Code Settings
+  - run `$ make code`
