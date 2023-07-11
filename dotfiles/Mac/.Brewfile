@@ -98,13 +98,13 @@ brew 'xz'
 brew 'zsh'
 brew 'zstd'
 
-# cask 'alfred'
-# cask 'google-japanese-ime'
-# cask 'iterm2'
+# cask 'alfred'                 # -> raycast
+# cask 'clipy'                  # -> raycast
+# cask 'google-japanese-ime'    # -> manual install
+# cask 'iterm2'                 # -> warp
 cask '1password'
 cask 'between'
 cask 'bluestacks'
-cask 'clipy'
 cask 'discord'
 cask 'docker'
 cask 'google-chrome'
