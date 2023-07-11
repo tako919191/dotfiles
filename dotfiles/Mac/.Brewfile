@@ -112,6 +112,7 @@ cask 'iterm2'
 cask 'karabiner-elements'
 cask 'steam'
 cask 'visual-studio-code'
+cask 'warp'
 cask 'xquartz'
 
 mas 'Amphetamine', id: 937984704
