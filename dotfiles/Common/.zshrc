@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -34,14 +33,14 @@ zinit light-mode for \
 # ---------------------------------------------------------
 # basic
 # ---------------------------------------------------------
-# コマンド履歴の管理
+# Manage command history
 HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=10000
-## 他のzshと履歴を共有
+## Share history with other zsh
 setopt inc_append_history
 setopt share_history
-## 環境変数を補完
+## Completing environment variables
 setopt AUTO_PARAM_KEYS
 
 # ---------------------------------------------------------
@@ -49,20 +48,20 @@ setopt AUTO_PARAM_KEYS
 # ---------------------------------------------------------
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# シンタックスハイライト
+# syntax highlighting
 zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting
 zinit ice wait'!0'; zinit light zdharma/fast-syntax-highlighting
 
-# 入力補完
+# input completion
 zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 autoload -Uz compinit && compinit
-## 補完で小文字でも大文字にマッチさせる
+## Completion matches lowercase and uppercase letters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-## 補完候補を一覧表示したとき、Tabや矢印で選択できるようにする
+## When displaying a list of completion candidates, select with Tab or arrow
 zstyle ':completion:*:default' menu select=1
 
-# コマンド履歴を検索
+# Search Command History
 zinit ice wait'!0'; zinit light zdharma/history-search-multi-word
 
 # ---------------------------------------------------------
@@ -73,8 +72,6 @@ alias pip="pip3"
 alias ls='ls --color=auto -G'
 alias la='ls -lAG'
 alias ll='ls -lG'
-alias python="python3"
-
 
 # ---------------------------------------------------------
 # Node
@@ -97,3 +94,8 @@ bindkey '^R' peco-history-selection
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ---------------------------------------------------------
+# xxenv
+# ---------------------------------------------------------
+eval "$(rbenv init - zsh)"

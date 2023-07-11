@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "mosapride.zenkaku",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-vscode-remote.remote-containers",
+        "PKief.material-icon-theme",
+        "redhat.vscode-yaml",
+        "TakumiI.markdowntable",
+        "yzhang.markdown-all-in-one",
+        "mhutchie.git-graph",
+        "marp-team.marp-vscode",
+        "shd101wyy.markdown-preview-enhanced",
+        "DavidAnson.vscode-markdownlint",
+    ]
+}
