@@ -8,6 +8,8 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.renderControlCharacters": true,
   "editor.wordWrap": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
 
   // Others //
   "files.trimFinalNewlines": true,
@@ -26,6 +28,11 @@
     "editor.formatOnPaste": true,
   },
   "markdown.styles": [".vscode/style.css"],
+
+  // json //
+  "[json]": {
+    "editor.formatOnSave": true
+  },
 
   // Makefile //
   "[makefile]": {
