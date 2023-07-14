@@ -16,7 +16,7 @@ defaults:
 	./bin/Mac/defaults.sh
 
 # Install macOS applications.
-brew: link
+brew:
 	./bin/Mac/brew.sh
 
 # WIP: Install VS Code Settings to User Setting Directory
