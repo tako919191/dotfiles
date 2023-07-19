@@ -115,6 +115,7 @@ cask 'steam'
 cask 'visual-studio-code'
 cask 'warp'
 cask 'xquartz'
+cask 'zoom'
 
 mas 'Amphetamine', id: 937984704
 mas 'kindle', id: 405399194
