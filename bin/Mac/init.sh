@@ -6,10 +6,17 @@ if [ "$(uname)" != "Darwin" ] ; then
 fi
 
 # Set zsh to default shell
-chsh -s /bin/zsh
+if [ $SHELL != "/bin/zsh" ]; then
+	echo 'zsh'
+	# chsh -s /bin/zsh
+fi
 
 # Install xcode
-xcode-select --install > /dev/null
+if !(xcode-select -p > /dev/null 2>&1); then
+	xcode-select --install > /dev/null
+fi
 
 # Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+if !(type brew > /dev/null 2>&1); then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+fi
