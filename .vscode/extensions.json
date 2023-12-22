@@ -4,6 +4,7 @@
         "DavidAnson.vscode-markdownlint",
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
+        "HashiCorp.terraform",
         "marp-team.marp-vscode",
         "mhutchie.git-graph",
         "mosapride.zenkaku",
@@ -13,7 +14,9 @@
         "oderwat.indent-rainbow",
         "PKief.material-icon-theme",
         "redhat.vscode-yaml",
+        "SirTobi.code-clip-ring",
         "TakumiI.markdowntable",
+        "tomsaunders.vscode-workspace-explorer",
         "yzhang.markdown-all-in-one",
     ]
 }
