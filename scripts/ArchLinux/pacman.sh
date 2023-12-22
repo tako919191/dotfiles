@@ -6,4 +6,4 @@ PACKAGES+=" pwgen tree jq yq tcpdump sed gzip tar whois"
 PACKAGES+=" docker kubectl helm minikube"
 PACKAGES+=" go"
 
-sudo pacman -S ${PACKAGES}
+sudo pacman -S `echo $PACKAGES`
