@@ -5,7 +5,7 @@
 # Link dotfiles
 .PHONY: link
 link:
-	./bin/Common/link.sh
+	./scripts/Common/link.sh
 
 ## ---------------------------------------------------------------------- ##
 # MacOS
@@ -17,22 +17,22 @@ mac-all: mac-init link defaults brew code
 # Set initial preference.
 .PHONY: mac-init
 mac-init:
-	./bin/Mac/init.sh
+	./scripts/Mac/init.sh
 
 # Set macOS system preferences.
 .PHONY: defaults
 defaults:
-	./bin/Mac/defaults.sh
+	./scripts/Mac/defaults.sh
 
 # Install macOS applications.
 .PHONY: brew
 brew:
-	./bin/Mac/brew.sh
+	./scripts/Mac/brew.sh
 
 # WIP: Install VS Code Settings to User Setting Directory
 .PHONY: code
 code:
-	./bin/Mac/vscode.sh
+	./scripts/Mac/vscode.sh
 
 ## ---------------------------------------------------------------------- ##
 # ArchLinux
@@ -40,4 +40,5 @@ code:
 # Install ArchLinux packages.
 .PHONY: pacman
 pacman:
-	./bin/ArchLinux/pacman.sh
+	./scripts/ArchLinux/pacman.sh
+	./scripts/ArchLinux/yay.sh
