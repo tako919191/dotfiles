@@ -41,4 +41,3 @@ code:
 .PHONY: pacman
 pacman:
 	./scripts/ArchLinux/pacman.sh
-	./scripts/ArchLinux/yay.sh
