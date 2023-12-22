@@ -1,24 +1,44 @@
-.PHONY: init link defaults brew code
 
-# Do everything.
-all: init link defaults brew code
+## ---------------------------------------------------------------------- ##
+# Common
+## ---------------------------------------------------------------------- ##
+# Link dotfiles
+.PHONY: link
+link:
+	./scripts/Common/link.sh
+
+## ---------------------------------------------------------------------- ##
+# MacOS
+## ---------------------------------------------------------------------- ##
+# MacOS: Do everything.
+.PHONY: mac-all
+mac-all: mac-init link defaults brew code
 
 # Set initial preference.
-init:
-	./bin/Mac/init.sh
-
-# Link dotfiles.
-link:
-	./bin/Common/link.sh
+.PHONY: mac-init
+mac-init:
+	./scripts/Mac/init.sh
 
 # Set macOS system preferences.
+.PHONY: defaults
 defaults:
-	./bin/Mac/defaults.sh
+	./scripts/Mac/defaults.sh
 
 # Install macOS applications.
+.PHONY: brew
 brew:
-	./bin/Mac/brew.sh
+	./scripts/Mac/brew.sh
 
 # WIP: Install VS Code Settings to User Setting Directory
+.PHONY: code
 code:
-	./bin/Mac/vscode.sh
+	./scripts/Mac/vscode.sh
+
+## ---------------------------------------------------------------------- ##
+# ArchLinux
+## ---------------------------------------------------------------------- ##
+# Install ArchLinux packages.
+.PHONY: pacman
+pacman:
+	./scripts/ArchLinux/pacman.sh
+	./scripts/ArchLinux/yay.sh
