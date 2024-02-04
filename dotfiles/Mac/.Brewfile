@@ -49,6 +49,7 @@ brew 'zsh'
 # cask 'iterm2'                 # -> warp
 cask 'docker'
 cask 'google-chrome'
+cask 'google-cloud-sdk'
 cask 'karabiner-elements'
 cask 'raycast'
 cask 'visual-studio-code'
